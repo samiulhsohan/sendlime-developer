@@ -1,0 +1,159 @@
+---
+sidebar_position: 2
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Sending an SMS
+
+To send an SMS, replace the following variables in the example below:
+
+| Key                 | Description                                          |
+|---------------------|------------------------------------------------------|
+| SENDLIME_API_KEY    | Your SendLime API key (see it on [your dashboard](https://dashboard.sendlime.com)).    |
+| SENDLIME_API_SECRET | Your SendLime API secret (see it on [your dashboard](https://dashboard.sendlime.com)). |
+| SENDLIME_BRAND_NAME | The registered brand/mask or purchased number.       |
+| TO_NUMBER           | The phone number you are sending the message to.     |
+
+<Tabs groupId="programming-lang">
+<TabItem value="curl" label="cURL" default>
+
+## Write the code
+
+Add the following to `send-sms.sh`:
+
+```shell
+curl -X "POST" "https://brain.sendlime.com/sms" \
+  -d "from=$SENDLIME_BRAND_NAME" \
+  -d "text=A text message sent using the SendLime API" \
+  -d "to=$TO_NUMBER" \
+  -d "api_key=$SENDLIME_API_KEY" \
+  -d "api_secret=$SENDLIME_API_SECRET"
+```
+
+## Run your code
+
+Save this file to your machine and run it:
+
+```bash
+sh send-sms.sh
+```
+
+</TabItem>
+<TabItem value="node" label="Node.js">
+
+## Install the library
+
+```bash
+npm install @sendlime/server-sdk
+```
+
+## Initialize the library
+
+```js
+const SendLime = require('@sendlime/server-sdk');
+
+const sendLime = new SendLime({
+  apiKey: SENDLIME_API_KEY,
+  apiSecret: SENDLIME_API_SECRET,
+});
+```
+
+## Write the code
+
+```js
+const from = SENDLIME_BRAND_NAME;
+const to = TO_NUMBER;
+const text = "A text message sent using the SendLime API";
+
+sendLime.message
+  .sendSms({ from, to, text })
+  .then((response) => {
+    if (response.success) {
+      console.log("Message sent successfully.");
+    } else {
+      console.log(`Message failed with error: ${response.error_message}`);
+    }
+  })
+  .catch((err) => console.log(err));
+```
+
+:::info
+
+If you don't have an approved brand/mask or a purchased number, you don't need to pass `from`.
+
+:::
+
+</TabItem>
+<TabItem value="java" label="Java">
+
+## Installation
+
+### Gradle
+
+Step 1. Add the JitPack repository to your build file .
+
+```gradle
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+Step 2. Add the dependency.
+
+```gradle
+dependencies {
+        implementation 'com.github.SendLime:sendlime-sdk-java:v1.0.10'
+}
+```
+
+### Maven
+
+Step 1. Add the JitPack repository to your build file
+
+```
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+```
+
+Step 2. Add the dependency
+
+```
+<dependency>
+    <groupId>com.github.SendLime</groupId>
+    <artifactId>sendlime-sdk-java</artifactId>
+    <version>v1.0.10</version>
+</dependency>
+```
+
+## Write the code
+
+```java
+SendLimeClient client = SendLimeClient.build().apiKey(SENDLIME_API_KEY).apiSecret(SENDLIME_API_SECRET).build();
+
+SubmitTextResponse networkResponse = client.getSmsClient().sendMessage(
+    SENDLIME_BRAND_NAME,
+    TO_NUMBER,
+    "A text message sent using the SendLime API"
+);
+```
+
+:::info
+
+If you don't have an approved brand/mask or a purchased number, you don't need to pass the first argument to the `sendMessage` function.
+
+:::
+
+</TabItem>
+</Tabs>
+
+## Try it out
+
+When you run the example above, the text message will be sent to the mobile number that you specified.
