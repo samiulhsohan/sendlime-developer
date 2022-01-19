@@ -23,7 +23,7 @@ When you send an SMS, the SMS API returns a JSON response:
 
 The `error_code` field tells you if the message was successfully queued for sending. Null indicates success; a non-null value means something went wrong.
 
-:::note
+:::info
 
 A `error_code` of `null` in the API response does not indicate that SendLime delivered your message.
 
