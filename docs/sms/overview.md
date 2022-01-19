@@ -18,8 +18,8 @@ This topic contains the following information:
 - [Concepts](#concepts) - Introductory concepts
 
 ## Troubleshooting
-If you have problems when making API calls be sure to check the returned status field for specific error codes.
+If you have problems when making API calls be sure to check the returned [status field](guides/troubleshooting-sms) for specific [error codes](guides/troubleshooting-sms#sms-api-error-codes).
 
 ## Concepts
-Before using the Vonage SMS API, familiarize yourself with the following:
-- Number format - The SMS API requires phone numbers in E.164 format.
+Before using the SendLime API, familiarize yourself with the following:
+- [Number format](guides/numbers) - The SMS API requires phone numbers in E.164 format.
