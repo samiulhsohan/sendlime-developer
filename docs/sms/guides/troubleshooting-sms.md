@@ -29,6 +29,12 @@ A `error_code` of `null` in the API response does not indicate that SendLime del
 
 :::
 
+:::caution
+
+As per the BTRC guidelines, promotional messages have to be in Bangla.
+
+:::
+
 ## SMS API error codes
 If the SMS API returns a non-null `error_code` value then use the following table to determine what went wrong:
 
