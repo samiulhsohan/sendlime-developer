@@ -5,6 +5,13 @@
  */
 
 /* You can override the default Infima variables here. */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
 :root {
   --ifm-color-primary: hsl(228, 100%, 47%);
   --ifm-color-primary-dark: hsl(228, 100%, 42%);
