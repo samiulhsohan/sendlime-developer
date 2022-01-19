@@ -6,7 +6,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "SendLime Developer Center",
+  title: "SendLime Developer",
   tagline: "Communications API",
   url: "https://developer.sendlime.com",
   baseUrl: "/",
@@ -70,8 +70,12 @@ const config = {
             title: "Docs",
             items: [
               {
-                label: "Overview",
+                label: "Getting Started",
                 to: "/docs/overview",
+              },
+              {
+                label: "Messaging",
+                to: "/docs/sms/overview",
               },
             ],
           },
