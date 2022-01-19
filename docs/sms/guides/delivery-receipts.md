@@ -15,12 +15,12 @@ In most situations, a DLR is a reliable indicator that a message was delivered. 
 This is a typical DLR:
 ```json
 {
-  "message_id": "580000908Q23PJCF",
-  "from": "SendLime",
-  "to": "8801287119821",
+  "api_key": "bnfOlpuC",
+  "to": "8801798110912",
+  "from": "8809612436844",
+  "message_id": "5600008304BA3YNX",
   "price": "0.19",
-  "status": "accepted",
-  "network": "47002"
+  "status": "delivered"
 }
 ```
 
