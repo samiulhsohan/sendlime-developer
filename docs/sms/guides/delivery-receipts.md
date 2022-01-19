@@ -3,7 +3,7 @@ sidebar_position: 3
 ---
 
 # Delivery receipts
-When you make a successful request to the SMS API, it returns a json object. Ideally it will have a `success` of `true`, indicating success. But this does not mean that your message has reached your recipients. It only means that your message has been successfully queued for sending.
+When you make a successful request to the SMS API, it returns a json object. Ideally it will have a `status` of `pending`, indicating success. But this does not mean that your message has reached your recipients. It only means that your message has been successfully queued for sending.
 
 :::info
 
