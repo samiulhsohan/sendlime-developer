@@ -12,7 +12,7 @@ function HomepageHeader() {
     <header className={styles.heroBanner}>
       <div className="container">
         <h1 className="hero__title">SendLime Developer Center</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <p className="hero__subtitle">Integrate SMS to your apps with SendLime APIs and SDKs.</p>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
@@ -34,9 +34,9 @@ export default function Home() {
       description="Description will go into a meta tag in <head />"
     >
       <HomepageHeader />
-      <main>
-        {/* <HomepageFeatures /> */}
-      </main>
+      {/* <main>
+        <HomepageFeatures />
+      </main> */}
     </Layout>
   );
 }
