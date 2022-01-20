@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Integrations
 
-SendLime has various add-ons and plugins so that you can easily integrate with your system.
+SendLime has various add-ons and plugins so that you can easily integrate SendLime into your system.
 
 ## Plugin for WP WooCommerce
 
