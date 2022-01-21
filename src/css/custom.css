@@ -33,8 +33,3 @@ body {
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
-
-.main-wrapper {
-  display: grid;
-  place-items: center;
-}
