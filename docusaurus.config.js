@@ -39,6 +39,13 @@ const config = {
     ],
   ],
 
+  scripts: [
+    {
+      src: "https://cdn.splitbee.io/sb.js",
+      async: true,
+    }
+  ],
+
   plugins: [
     'docusaurus-plugin-hotjar',
   ],
