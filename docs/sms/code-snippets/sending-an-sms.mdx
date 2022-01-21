@@ -150,6 +150,12 @@ SendMessageResponse networkResponse = client.getSmsClient().sendMessage(
     TO_NUMBER,
     "A text message sent using the SendLime API"
 );
+
+if (response.isSuccess()) {
+    System.out.println("Message sent successfully");
+} else {
+    System.out.println("Message failed with error: " + response.getErrorMessage());
+}
 ```
 
 :::info
