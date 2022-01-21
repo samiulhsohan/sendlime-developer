@@ -39,6 +39,10 @@ const config = {
     ],
   ],
 
+  plugins: [
+    'docusaurus-plugin-hotjar',
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -112,6 +116,9 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
         additionalLanguages: ['java'],
+      },
+      hotjar: {
+        applicationId: 2795161,
       },
     }),
 };
