@@ -33,6 +33,12 @@ curl -X "POST" "https://brain.sendlime.com/sms" \
   -d "api_secret=$SENDLIME_API_SECRET"
 ```
 
+:::info
+
+If you don't have an approved brand/mask or a purchased number, you don't need to pass `from`.
+
+:::
+
 ## Run your code
 
 Save this file to your machine and run it:
@@ -107,7 +113,7 @@ Step 2. Add the dependency.
 
 ```gradle
 dependencies {
-        implementation 'com.github.SendLime:sendlime-sdk-java:v1.0.10'
+    implementation 'com.github.SendLime:sendlime-sdk-java:v1.0.10'
 }
 ```
 
@@ -139,7 +145,7 @@ Step 2. Add the dependency
 ```java
 SendLimeClient client = SendLimeClient.build().apiKey(SENDLIME_API_KEY).apiSecret(SENDLIME_API_SECRET).build();
 
-SubmitTextResponse networkResponse = client.getSmsClient().sendMessage(
+SendMessageResponse networkResponse = client.getSmsClient().sendMessage(
     SENDLIME_BRAND_NAME,
     TO_NUMBER,
     "A text message sent using the SendLime API"
