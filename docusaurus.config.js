@@ -35,9 +35,6 @@ const config = {
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
-        googleAnalytics: {
-          trackingID: 'G-PTXRYCJ25N',
-        },
       }),
     ],
   ],
@@ -51,6 +48,12 @@ const config = {
 
   plugins: [
     'docusaurus-plugin-hotjar',
+    [
+      '@docusaurus/plugin-google-analytics',
+      {
+        trackingID: 'G-PTXRYCJ25N',
+      },
+    ],
   ],
 
   themeConfig:
@@ -129,6 +132,9 @@ const config = {
       },
       hotjar: {
         applicationId: 2795161,
+      },
+      googleAnalytics: {
+        trackingID: 'G-PTXRYCJ25N',
       },
     }),
 };
