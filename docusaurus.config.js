@@ -48,12 +48,6 @@ const config = {
 
   plugins: [
     'docusaurus-plugin-hotjar',
-    [
-      '@docusaurus/plugin-google-analytics',
-      {
-        trackingID: 'G-PTXRYCJ25N',
-      },
-    ],
   ],
 
   themeConfig:
