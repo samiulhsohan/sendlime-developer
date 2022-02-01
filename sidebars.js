@@ -19,7 +19,7 @@ const sidebars = {
     {
       type: 'link',
       label: 'API References',
-      href: 'https://sendlime.stoplight.io/docs/apis',
+      href: 'https://api.sendlime.com',
     },
   ],
 
