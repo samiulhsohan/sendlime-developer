@@ -20,6 +20,14 @@ To send an SMS, replace the following variables in the example below:
 <Tabs groupId="programming-lang">
 <TabItem value="curl" label="cURL" default>
 
+:::info
+
+HTTP requests to the API are protected with [HTTP Basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication).
+
+User your **API Key** as the username and your **API Secret** as the password for HTTP Basic authentication.
+
+:::
+
 ## Write the code
 
 Add the following to `send-sms.sh`:
@@ -29,8 +37,7 @@ curl -X "POST" "https://brain.sendlime.com/sms" \
   -d "from=$SENDLIME_BRAND_NAME" \
   -d "text=A text message sent using the SendLime API" \
   -d "to=$TO_NUMBER" \
-  -d "api_key=$SENDLIME_API_KEY" \
-  -d "api_secret=$SENDLIME_API_SECRET"
+  -u $SENDLIME_API_KEY:$SENDLIME_API_SECRET
 ```
 
 :::info
