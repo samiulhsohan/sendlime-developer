@@ -12,6 +12,6 @@ The Verify API enables you to confirm that you can contact a user at a specific 
 - Add an extra layer of security to help confirm a user's identity when they want to perform certain activities.
 
 ## Guides
-This topic contains the following information:
+
 - [Verify Languages](guides/verify-languages) - The available languges for Verify API
 - [Troubleshooting](guides/troubleshooting)
