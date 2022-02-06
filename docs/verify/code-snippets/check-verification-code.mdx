@@ -1,0 +1,153 @@
+---
+sidebar_position: 3
+no_edit_button: true
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Check Verification Code
+
+Check the verification code that a user has provided. Use the `request_id` that was received when the [verification code was sent](send-verification-code).
+
+Replace the following variables in the sample code with your own values:
+
+| Key                 | Description                                          |
+|---------------------|------------------------------------------------------|
+| SENDLIME_API_KEY    | Your SendLime API key (see it on [your dashboard](https://dashboard.sendlime.com)).    |
+| SENDLIME_API_SECRET | Your SendLime API secret (see it on [your dashboard](https://dashboard.sendlime.com)). |
+| REQUEST_ID | The ID of the Verify request (this is returned in the API response when you [send a verification code](send-verification-code)).       |
+| CODE           | 	The verification code entered by your user.     |
+
+<Tabs groupId="programming-lang">
+<TabItem value="curl" label="cURL" default>
+
+:::info
+
+HTTP requests to the API are protected with [HTTP Basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication).
+
+User your **API Key** as the username and your **API Secret** as the password for HTTP Basic authentication.
+
+:::
+
+## Write the code
+
+Add the following to `check-verification-code.sh`:
+
+```shell
+curl -X "POST" "https://brain.sendlime.com/verify/check" \
+  -d "request_id=$REQUEST_ID" \
+  -d "code=$CODE" \
+  -u $SENDLIME_API_KEY:$SENDLIME_API_SECRET
+```
+
+## Run your code
+
+Save this file to your machine and run it:
+
+```bash
+sh check-verification-code.sh
+```
+
+</TabItem>
+<TabItem value="node" label="Node.js">
+
+## Install the library
+
+```bash
+npm install @sendlime/server-sdk
+```
+
+## Initialize the library
+
+```js
+const SendLime = require('@sendlime/server-sdk');
+
+const sendLime = new SendLime({
+  apiKey: SENDLIME_API_KEY,
+  apiSecret: SENDLIME_API_SECRET,
+});
+```
+
+## Write the code
+
+```js
+sendLime.verify
+  .checkCode({
+    request_id: REQUEST_ID,
+    code: CODE,
+  })
+  .then((res) => {
+    if (res.success) {
+      console.log('Verified');
+    } else {
+      console.log(`Failed with error: ${res.error_message}`);
+    }
+  })
+  .catch((err) => console.log(err));
+```
+
+</TabItem>
+<TabItem value="java" label="Java">
+
+## Installation
+
+### Gradle
+
+Step 1. Add the JitPack repository to your build file
+
+```gradle
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+Step 2. Add the dependency
+
+```gradle
+dependencies {
+    implementation 'com.github.SendLime:sendlime-sdk-java:v1.0.10'
+}
+```
+
+### Maven
+
+Step 1. Add the JitPack repository to your build file
+
+```xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+```
+
+Step 2. Add the dependency
+
+```xml
+<dependency>
+    <groupId>com.github.SendLime</groupId>
+    <artifactId>sendlime-sdk-java</artifactId>
+    <version>v1.0.10</version>
+</dependency>
+```
+
+## Write the code
+
+```java
+SendLimeClient client = SendLimeClient.build().apiKey(SENDLIME_API_KEY).apiSecret(SENDLIME_API_SECRET).build();
+
+VerifyCodeResponse verifyCodeResponse = client.getCodeClient().verifyCode(REQUEST_ID, CODE);
+
+if (verifyCodeResponse.isSuccess()) {
+    System.out.println("Verified");
+} else {
+    System.out.println(verifyCodeResponse.getErrorMessage());
+}
+```
+
+</TabItem>
+</Tabs>

@@ -3,7 +3,7 @@ sidebar_position: 1
 sidebar_label: Overview
 ---
 
-# SMS API
+# Verify API
 
 The Verify API enables you to confirm that you can contact a user at a specific number, so that you can:
 
